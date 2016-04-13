@@ -172,6 +172,7 @@ DIST          = ../../Qt/5.6/clang_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.6/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.6/clang_64/mkspecs/features/spec_post.prf \
+		../helloworld/.qmake.stash \
 		../../Qt/5.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.6/clang_64/mkspecs/features/default_pre.prf \
 		../../Qt/5.6/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -326,6 +327,7 @@ Makefile: ../helloworld/helloworld.pro ../../Qt/5.6/clang_64/mkspecs/macx-clang/
 		../../Qt/5.6/clang_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.6/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../Qt/5.6/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.6/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.6/clang_64/mkspecs/features/default_pre.prf \
 		../../Qt/5.6/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -471,6 +473,7 @@ Makefile: ../helloworld/helloworld.pro ../../Qt/5.6/clang_64/mkspecs/macx-clang/
 ../../Qt/5.6/clang_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.6/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../Qt/5.6/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.6/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.6/clang_64/mkspecs/features/default_pre.prf:
 ../../Qt/5.6/clang_64/mkspecs/features/mac/default_pre.prf:

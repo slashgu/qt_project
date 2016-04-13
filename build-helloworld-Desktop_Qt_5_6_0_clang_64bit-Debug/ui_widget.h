@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -27,12 +28,13 @@ public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QPushButton *printHam_btn;
+    QLabel *label;
 
     void setupUi(QWidget *Widget)
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QStringLiteral("Widget"));
-        Widget->resize(406, 338);
+        Widget->resize(503, 387);
         horizontalLayout = new QHBoxLayout(Widget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -44,6 +46,11 @@ public:
         printHam_btn->setObjectName(QStringLiteral("printHam_btn"));
 
         verticalLayout->addWidget(printHam_btn);
+
+        label = new QLabel(Widget);
+        label->setObjectName(QStringLiteral("label"));
+
+        verticalLayout->addWidget(label);
 
 
         horizontalLayout->addLayout(verticalLayout);
@@ -58,6 +65,7 @@ public:
     {
         Widget->setWindowTitle(QApplication::translate("Widget", "Super Ham", 0));
         printHam_btn->setText(QApplication::translate("Widget", "Print Ham", 0));
+        label->setText(QApplication::translate("Widget", "TextLabel", 0));
     } // retranslateUi
 
 };
