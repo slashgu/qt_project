@@ -41,8 +41,6 @@ public:
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         treeWidget = new QTreeWidget(tesla_q3);
-        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem(treeWidget);
-        new QTreeWidgetItem(__qtreewidgetitem);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
 
         horizontalLayout->addWidget(treeWidget);
@@ -60,16 +58,8 @@ public:
     {
         tesla_q3->setWindowTitle(QApplication::translate("tesla_q3", "tesla_q3", 0));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
-        ___qtreewidgetitem->setText(0, QApplication::translate("tesla_q3", "root", 0));
-
-        const bool __sortingEnabled = treeWidget->isSortingEnabled();
-        treeWidget->setSortingEnabled(false);
-        QTreeWidgetItem *___qtreewidgetitem1 = treeWidget->topLevelItem(0);
-        ___qtreewidgetitem1->setText(0, QApplication::translate("tesla_q3", "leaf 1", 0));
-        QTreeWidgetItem *___qtreewidgetitem2 = ___qtreewidgetitem1->child(0);
-        ___qtreewidgetitem2->setText(0, QApplication::translate("tesla_q3", "leaf 2", 0));
-        treeWidget->setSortingEnabled(__sortingEnabled);
-
+        ___qtreewidgetitem->setText(1, QApplication::translate("tesla_q3", "comments", 0));
+        ___qtreewidgetitem->setText(0, QApplication::translate("tesla_q3", "1", 0));
     } // retranslateUi
 
 };

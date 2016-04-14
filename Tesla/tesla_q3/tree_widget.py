@@ -25,8 +25,8 @@ except AttributeError:
         return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_tesla_q3(QtGui.QTreeWidget):
-    def __int__(self):
-        super(Ui_tesla_q3, self).__int__()
+    def __init__(self):
+        super(Ui_tesla_q3, self).__init__()
         self.setupUi(self)
 
     def setupUi(self, tesla_q3):
