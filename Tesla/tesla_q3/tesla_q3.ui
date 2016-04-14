@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>527</width>
-    <height>396</height>
+    <width>678</width>
+    <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,22 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>print name</string>
-       </property>
+      <widget class="QTreeWidget" name="treeWidget">
+       <column>
+        <property name="text">
+         <string>root</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>leaf 1</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>leaf 2</string>
+         </property>
+        </item>
+       </item>
       </widget>
      </item>
     </layout>
