@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'tesla_q3.ui'
 #
-# Created: Wed Apr 13 21:43:31 2016
+# Created: Thu Apr 14 17:50:40 2016
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -25,7 +25,7 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_tesla_q3(QtGui.QTreeWidget):
+class Ui_tesla_q3(QtGui.QWidget):
     def __init__(self):
         super(Ui_tesla_q3, self).__init__()
         self.setupUi(self)
@@ -39,7 +39,6 @@ class Ui_tesla_q3(QtGui.QTreeWidget):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
 
         self.treeWidget = QtGui.QTreeWidget(tesla_q3)
-
         self.treeWidget.setObjectName(_fromUtf8("treeWidget"))
         item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
         item_1 = QtGui.QTreeWidgetItem(item_0)
@@ -51,16 +50,14 @@ class Ui_tesla_q3(QtGui.QTreeWidget):
         QtCore.QMetaObject.connectSlotsByName(tesla_q3)
 
     def retranslateUi(self, tesla_q3):
+        headCommit = repo.head.commit
         tesla_q3.setWindowTitle(_translate("tesla_q3", "tesla_q3", None))
-        cmt = repo.commit()
-        self.treeWidget.headerItem().setText(0, _translate("tesla_q3", str(cmt), None))
-
-        __sortingEnabled = self.treeWidget.isSortingEnabled()
-        self.treeWidget.setSortingEnabled(False)
-
-        self.treeWidget.topLevelItem(0).setText(0, _translate("tesla_q3", "leaf 1", None))
-        self.treeWidget.topLevelItem(0).child(0).setText(0, _translate("tesla_q3", "leaf 2", None))
-        self.treeWidget.setSortingEnabled(__sortingEnabled)
+        self.treeWidget.headerItem().setText(0, _translate("tesla_q3", "commits", None))
+        self.treeWidget.headerItem().setText(1, _translate("tesla_q3", "comments", None))
+        self.treeWidget.topLevelItem(0).setText(0, _translate("tesla_q3", str(headCommit), None))
+        self.treeWidget.topLevelItem(0).setText(1, _translate("tesla_q3", headCommit.message, None))
+        self.treeWidget.topLevelItem(0).child(0).setText(0, _translate("tesla_q3", "test", None))
+        self.treeWidget.topLevelItem(0).child(0).setText(1, _translate("tesla_q3", "test message", None))
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

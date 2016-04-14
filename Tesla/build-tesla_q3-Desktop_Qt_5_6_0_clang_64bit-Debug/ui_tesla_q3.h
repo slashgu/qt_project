@@ -15,6 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QKeySequenceEdit>
 #include <QtWidgets/QTreeWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -26,6 +27,7 @@ class Ui_tesla_q3
 public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
+    QKeySequenceEdit *keySequenceEdit;
     QTreeWidget *treeWidget;
 
     void setupUi(QWidget *tesla_q3)
@@ -40,6 +42,11 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        keySequenceEdit = new QKeySequenceEdit(tesla_q3);
+        keySequenceEdit->setObjectName(QStringLiteral("keySequenceEdit"));
+
+        horizontalLayout->addWidget(keySequenceEdit);
+
         treeWidget = new QTreeWidget(tesla_q3);
         treeWidget->setObjectName(QStringLiteral("treeWidget"));
 
