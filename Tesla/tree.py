@@ -24,6 +24,7 @@ class TreeWidget(QMainWindow):
         child4.setText(1,'name4')
         self.tree.addTopLevelItem(root)
         self.setCentralWidget(self.tree)
+
 app = QApplication(sys.argv)
 tp = TreeWidget()
 tp.show()

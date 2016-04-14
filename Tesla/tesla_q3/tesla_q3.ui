@@ -15,27 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QTreeWidget" name="treeWidget">
-       <column>
-        <property name="text">
-         <string>root</string>
-        </property>
-       </column>
-       <item>
-        <property name="text">
-         <string>leaf 1</string>
-        </property>
-        <item>
-         <property name="text">
-          <string>leaf 2</string>
-         </property>
-        </item>
-       </item>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
    </item>
   </layout>
  </widget>

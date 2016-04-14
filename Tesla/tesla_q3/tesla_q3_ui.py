@@ -52,7 +52,7 @@ class Ui_tesla_q3(QtGui.QWidget):
         self.pushButton.clicked.connect(self.printName)
 
     def printName(self):
-        output = sb.check_output("git status", shell=True)
+        output = sb.check_output("git log", shell=True)
         print output
 
 if __name__ == '__main__':
