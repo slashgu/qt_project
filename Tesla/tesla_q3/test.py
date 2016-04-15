@@ -2,13 +2,11 @@
 
 # Form implementation generated from reading ui file 'tesla_q3.ui'
 #
-# Created: Thu Apr 14 17:50:40 2016
+# Created: Thu Apr 14 20:05:23 2016
 #      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
-import sys
-from git import Repo
 from PyQt4 import QtCore, QtGui
 
 try:
@@ -25,11 +23,7 @@ except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
 
-class Ui_tesla_q3(QtGui.QWidget):
-    def __init__(self):
-        super(Ui_tesla_q3, self).__init__()
-        self.setupUi(self)
-
+class Ui_tesla_q3(object):
     def setupUi(self, tesla_q3):
         tesla_q3.setObjectName(_fromUtf8("tesla_q3"))
         tesla_q3.resize(678, 486)
@@ -37,15 +31,12 @@ class Ui_tesla_q3(QtGui.QWidget):
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-
         self.treeWidget = QtGui.QTreeWidget(tesla_q3)
         self.treeWidget.setObjectName(_fromUtf8("treeWidget"))
-
-        # item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
-        # item_1 = QtGui.QTreeWidgetItem(self.treeWidget)
-        for i in range(len(commits)):
-            item = QtGui.QTreeWidgetItem(self.treeWidget)
-
+        item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
+        item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
         self.horizontalLayout.addWidget(self.treeWidget)
         self.verticalLayout.addLayout(self.horizontalLayout)
 
@@ -53,22 +44,14 @@ class Ui_tesla_q3(QtGui.QWidget):
         QtCore.QMetaObject.connectSlotsByName(tesla_q3)
 
     def retranslateUi(self, tesla_q3):
-        headCommit = repo.head.commit
         tesla_q3.setWindowTitle(_translate("tesla_q3", "tesla_q3", None))
-        self.treeWidget.headerItem().setText(0, _translate("tesla_q3", "commits", None))
+        self.treeWidget.headerItem().setText(0, _translate("tesla_q3", "1", None))
         self.treeWidget.headerItem().setText(1, _translate("tesla_q3", "comments", None))
-        self.treeWidget.headerItem().setText(2, _translate("tesla_q3", "author", None))
-        for i in range(len(commits)):
-        # self.treeWidget.topLevelItem(0).setText(0, _translate("tesla_q3", str(headCommit), None))
-        # self.treeWidget.topLevelItem(0).setText(1, _translate("tesla_q3", headCommit.message, None))
-            self.treeWidget.topLevelItem(i).setText(0, _translate("tesla_q3", str(commits[i]), None))
-            self.treeWidget.topLevelItem(i).setText(1, _translate("tesla_q3", commits[i].message, None))
-            self.treeWidget.topLevelItem(i).setText(2, _translate("tesla_q3", commits[i].author.name, None))
+        __sortingEnabled = self.treeWidget.isSortingEnabled()
+        self.treeWidget.setSortingEnabled(False)
+        self.treeWidget.topLevelItem(0).setText(0, _translate("tesla_q3", "2", None))
+        self.treeWidget.topLevelItem(1).setText(0, _translate("tesla_q3", "3", None))
+        self.treeWidget.topLevelItem(2).setText(0, _translate("tesla_q3", "4", None))
+        self.treeWidget.topLevelItem(3).setText(0, _translate("tesla_q3", "5", None))
+        self.treeWidget.setSortingEnabled(__sortingEnabled)
 
-if __name__ == '__main__':
-    app = QtGui.QApplication(sys.argv)
-    repo = Repo('/Users/chenggu/myQt/')
-    commits = list(repo.iter_commits())
-    ex = Ui_tesla_q3()
-    ex.show()
-    sys.exit(app.exec_())
