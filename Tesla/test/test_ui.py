@@ -217,8 +217,6 @@ class window(base, form):
 
         QtCore.QObject.connect(self.uiFilter, QtCore.SIGNAL("textChanged(QString)"), self._proxyModel.setFilterRegExp)
 
-        QtCore.QObject.connect(self.enter, QtCore.SIGNAL("clicked()"), self.showDialog)
-
         self._proxyModel.setSourceModel(self._model)
 
         """
@@ -240,13 +238,6 @@ class window(base, form):
 
         # TODO: sort the commit time
         # QtGui.QAbstractProxyModel
-    def showDialog(self):
-        text, ok = QtGui.QInputDialog.getText(self, 'Input Directory',
-            'Enter working directory:')
-
-        if ok:
-            self.lineEdit.setText(str(text))
-            self._model.setDIR(str(text))
 
 if __name__ == '__main__':
 

@@ -48,8 +48,8 @@
       <file leaf-file-name="test_ui.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/test_ui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6354167">
-              <caret line="255" column="31" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.47916666">
+              <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
               <folding>
                 <element signature="e#228#238#0" expanded="true" />
               </folding>
@@ -845,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_ui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6354167">
-          <caret line="255" column="31" selection-start-line="255" selection-start-column="31" selection-end-line="255" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.47916666">
+          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
           <folding>
             <element signature="e#228#238#0" expanded="true" />
           </folding>
