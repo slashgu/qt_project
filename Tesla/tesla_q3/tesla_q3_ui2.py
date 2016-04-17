@@ -9,6 +9,7 @@
 
 import sys
 import re
+import subprocess
 from git import Repo
 from PyQt4 import QtCore, QtGui
 
@@ -25,7 +26,7 @@ try:
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-
+7
 class Ui_tesla_q3(QtGui.QWidget):
     def __init__(self):
         super(Ui_tesla_q3, self).__init__()
@@ -33,7 +34,7 @@ class Ui_tesla_q3(QtGui.QWidget):
 
     def setupUi(self, tesla_q3):
         tesla_q3.setObjectName(_fromUtf8("tesla_q3"))
-        tesla_q3.resize(678, 486)
+        tesla_q3.resize(888, 666)
         self.verticalLayout = QtGui.QVBoxLayout(tesla_q3)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.horizontalLayout = QtGui.QHBoxLayout()
@@ -42,13 +43,35 @@ class Ui_tesla_q3(QtGui.QWidget):
         self.treeWidget = QtGui.QTreeWidget(tesla_q3)
         self.treeWidget.setObjectName(_fromUtf8("treeWidget"))
 
-        # item_0 = QtGui.QTreeWidgetItem(self.treeWidget)
-        # item_1 = QtGui.QTreeWidgetItem(self.treeWidget)
+        self.button = QtGui.QPushButton('Search', self)
+        self.button.setFocusPolicy(QtCore.Qt.NoFocus)
+        QtGui.QWidget.sizeHint(self.button)
+
+        self.comboBox = QtGui.QComboBox(self)
+        self.comboBox.addItems(['day', 'week'])
+        self.comboBox.activated.connect(self.setSearchRange)
+
+        self.comboBox_num = QtGui.QComboBox(self)
+        self.comboBox_num.addItems([str(i) for i in range(1, 11)])
+        self.comboBox_num.activated.connect(self.setSearchNums)
+
+        # TODO: build func
+        self.connect(self.button, QtCore.SIGNAL('clicked()'), self.func)
+        self.setFocus()
+
+        repo = Repo(DIR)
+        # repo = Repo('/Users/chenggu/Desktop/CS 5200/FinalProject')
+
+        # SINCE = NUMS + '.' + RANGE
+        # TODO
+        # self.LIST = repo.git.log(oneline = True, graph = True, since = '').split('\n')
+        self.reGitInfo = re.compile('[*\s|\\/]+([0-9a-zA-Z]+)\s([0-9a-zA-Z\_\s]+)')
+
         i = 0
         flag = False
         count = 0
-        while i < len(list):
-            if not reGitInfo.match(str(list[i])):
+        while i < len(LIST):
+            if not self.reGitInfo.match(str(LIST[i])):
                 i += 1
                 if count % 2 == 0:
                     flag = True
@@ -62,32 +85,32 @@ class Ui_tesla_q3(QtGui.QWidget):
                 item_child = QtGui.QTreeWidgetItem(item_root)
             i += 1
 
-            # if reGitInfo.match(str(item)):
-            #     item_1 = QtGui.QTreeWidgetItem(self.treeWidget)
-            # else:
-            #     item_2 = QtGui.QTreeWidgetItem(item_1)
-
-
-        self.horizontalLayout.addWidget(self.treeWidget)
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        # add widget here
+        self.verticalLayout.addWidget(self.treeWidget)
+        self.verticalLayout.addWidget(self.comboBox)
+        self.verticalLayout.addWidget(self.comboBox_num)
+        self.verticalLayout.addWidget(self.button)
+        # self.horizontalLayout.addWidget(self.treeWidget)
+        # self.verticalLayout.addLayout(self.horizontalLayout)
 
         self.retranslateUi(tesla_q3)
         QtCore.QMetaObject.connectSlotsByName(tesla_q3)
 
     def retranslateUi(self, tesla_q3):
-        headCommit = repo.head.commit
         tesla_q3.setWindowTitle(_translate("tesla_q3", "tesla_q3", None))
         self.treeWidget.headerItem().setText(0, _translate("tesla_q3", "commits", None))
         self.treeWidget.headerItem().setText(1, _translate("tesla_q3", "comments", None))
+        self.center()
         # self.treeWidget.headerItem().setText(2, _translate("tesla_q3", "author", None))
+
         i = 0
         count = 0
         flag = False
         parent = 0
         children = 0
 
-        while i < len(list):
-            if not reGitInfo.match(str(list[i])):
+        while i < len(LIST):
+            if not self.reGitInfo.match(str(LIST[i])):
                 i += 1
                 if count % 2 == 0:
                     flag = True
@@ -98,35 +121,42 @@ class Ui_tesla_q3(QtGui.QWidget):
                     children = 0
                     count += 1
             if not flag:
-                self.treeWidget.topLevelItem(parent).setText(0, _translate("tesla_q3", str(reGitInfo.match(str(list[i])).groups()[0]), None))
-                self.treeWidget.topLevelItem(parent).setText(1, _translate("tesla_q3", str(reGitInfo.match(str(list[i])).groups()[1]), None))
-                print reGitInfo.match(str(list[i])).groups()
+                self.treeWidget.topLevelItem(parent).setText(0, _translate("tesla_q3", str(self.reGitInfo.match(str(LIST[i])).groups()[0]), None))
+                self.treeWidget.topLevelItem(parent).setText(1, _translate("tesla_q3", str(self.reGitInfo.match(str(LIST[i])).groups()[1]), None))
                 parent += 1
             else:
-                self.treeWidget.topLevelItem(parent).child(children).setText(0, _translate("tesla_q3", str(reGitInfo.match(str(list[i])).groups()[0]), None))
-                self.treeWidget.topLevelItem(parent).child(children).setText(1, _translate("tesla_q3", str(reGitInfo.match(str(list[i])).groups()[1]), None))
-                print reGitInfo.match(str(list[i])).groups()
+                self.treeWidget.topLevelItem(parent).child(children).setText(0, _translate("tesla_q3", str(self.reGitInfo.match(str(LIST[i])).groups()[0]), None))
+                self.treeWidget.topLevelItem(parent).child(children).setText(1, _translate("tesla_q3", str(self.reGitInfo.match(str(LIST[i])).groups()[1]), None))
                 children += 1
 
             i += 1
 
-        # for item in list:
-        #     if reGitInfo.match(str(item)):
-        #         self.treeWidget.topLevelItem(i).setText(0, _translate("tesla_q3", str(reGitInfo.match(str(item)).groups()[0]), None))
-        #         self.treeWidget.topLevelItem(i).setText(1, _translate("tesla_q3", str(reGitInfo.match(str(item)).groups()[1]), None))
-        #         i += 1
-        #
-        #         # self.treeWidget.topLevelItem(i).setText(2, _translate("tesla_q3", commits[i].author.name, None))
-        #     else:
-        #         pass
+    def center(self):
+        screen = QtGui.QDesktopWidget().screenGeometry();
+        size = self.geometry();
+        self.move((screen.width() - size.width()) / 2, (screen.height() - size.height()) / 2)
+
+    def func(self):
+        pass
+        # SINCE = NUMS + '.' + RANGE
+        # LIST = repo.git.log(oneline = True, graph = True, since = SINCE).split('\n')
+        # # subprocess.Popen(['python', 'tesla_q3_ui2.py'])
+
+    def setSearchRange(self):
+        self.RANGE = str(self.comboBox.currentText())
+
+    def setSearchNums(self):
+        self.NUMS = str(self.comboBox_num.currentText())
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    repo = Repo('/Users/chenggu/myQt/')
-    stack = []
-    list = repo.git.log(oneline = True, graph = True).split('\n')
-    reGitInfo = re.compile('[*\s|\\/]+([0-9a-zA-Z]+)\s([0-9a-zA-Z\_\s]+)')
-    # commits = list(repo.iter_commits())
+    DIR = '/Users/chenggu/myQt/'
+    repo = Repo(DIR)
+    # repo = Repo('/Users/chenggu/Desktop/CS 5200/FinalProject')
+    LIST = repo.git.log(oneline = True, graph = True).split('\n')
+    # print type(LIST[0])
+    # reGitInfo = re.compile('[*\s|\\/]+([0-9a-zA-Z]+)\s([0-9a-zA-Z\_\s]+)')
     ex = Ui_tesla_q3()
     ex.show()
     sys.exit(app.exec_())

@@ -9,7 +9,7 @@ class Center(QtGui.QWidget):
 
         self.setWindowTitle('center')
         self.resize(250, 150)
-        self.center();
+        self.center()
 
     def center(self):
         screen = QtGui.QDesktopWidget().screenGeometry();

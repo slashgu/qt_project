@@ -33,7 +33,7 @@ class Example(QtGui.QWidget):
             'Enter your name:')
 
         if ok:
-            self.label.setText(str(text))
+            self.lineEdit.setText(str(text))
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
